@@ -24,6 +24,14 @@ def get_score(assessment_name):
             print("Error: Please enter a valid number.")
 
 
+def calculate_total(scores):
+    return sum(scores)
+
+
+def calculate_average(total, number_of_scores):
+    return total / number_of_scores
+
+
 def main():
     print("=" * 35)
     print("     STUDENT GRADE CALCULATOR")
@@ -35,10 +43,14 @@ def main():
     test_score = get_score("Test")
     examination_score = get_score("Examination")
 
+    scores = [assignment_score, test_score, examination_score]
+
+    total_score = calculate_total(scores)
+    average_score = calculate_average(total_score, len(scores))
+
     print(f"\nStudent name: {student_name}")
-    print(f"Assignment score: {assignment_score}")
-    print(f"Test score: {test_score}")
-    print(f"Examination score: {examination_score}")
+    print(f"Total score: {total_score}")
+    print(f"Average score: {average_score:.2f}")
 
 
 if __name__ == "__main__":
