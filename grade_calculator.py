@@ -32,6 +32,28 @@ def calculate_average(total, number_of_scores):
     return total / number_of_scores
 
 
+def calculate_grade(average):
+    if average >= 70:
+        return "A"
+    elif average >= 60:
+        return "B"
+    elif average >= 50:
+        return "C"
+    elif average >= 45:
+        return "D"
+    elif average >= 40:
+        return "E"
+    else:
+        return "F"
+
+
+def get_status(average):
+    if average >= 40:
+        return "Pass"
+    else:
+        return "Fail"
+
+
 def main():
     print("=" * 35)
     print("     STUDENT GRADE CALCULATOR")
@@ -48,9 +70,14 @@ def main():
     total_score = calculate_total(scores)
     average_score = calculate_average(total_score, len(scores))
 
+    grade = calculate_grade(average_score)
+    status = get_status(average_score)
+
     print(f"\nStudent name: {student_name}")
     print(f"Total score: {total_score}")
     print(f"Average score: {average_score:.2f}")
+    print(f"Grade: {grade}")
+    print(f"Status: {status}")
 
 
 if __name__ == "__main__":
